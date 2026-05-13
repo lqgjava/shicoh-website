@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>新思考电机股份有限公司 - 专业电机研发与制造</title>
+    <meta name="description" content="新思考电机专注于各类微特电机的研发、生产与销售，为全球客户提供高品质的电机解决方案。">
+    <meta name="keywords" content="新思考电机,直流无刷电机,步进电机,伺服电机,微特电机,电机研发,电机制造">
+    <!-- 字体图标 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <!-- 主样式 -->
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <!-- 页面加载动画 -->
+    <div class="page-loader" id="pageLoader">
+        <div class="loader-content">
+            <div class="loader-spinner"></div>
+            <p>加载中...</p>
+        </div>
+    </div>
+
+    <!-- 头部导航 -->
+    <header class="header" id="header">
+        <div class="container header-wrap">
+            <a href="#home" class="logo">
+                <div class="logo-icon">
+                    <i class="fas fa-cog fa-spin"></i>
+                </div>
+                <div class="logo-text">
+                    新思考电机 <span>股份有限公司</span>
+                </div>
+            </a>
+            <!-- 移动端菜单按钮 -->
+            <div class="menu-btn" id="menuBtn">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <!-- 导航列表 -->
+            <nav class="nav-list" id="navList">
+                <a href="#home" class="nav-item active">首页</a>
+                <a href="#about" class="nav-item">企业简介</a>
+                <a href="#products" class="nav-item">产品中心</a>
+                <a href="#news" class="nav-item">新闻动态</a>
+                <a href="#contact" class="nav-item">联系我们</a>
+                <a href="#contact" class="nav-item nav-cta">获取报价</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- 横幅轮播区 -->
+    <section class="banner" id="home">
+        <div class="banner-slides" id="bannerSlides">
+            <!-- 幻灯片1 -->
+            <div class="banner-slide active" style="background-image: url('/assets/images/banner.svg')">
+                <div class="banner-overlay"></div>
+                <div class="banner-content">
+                    <h1 class="animate-fadeUp">创新驱动 精工制造</h1>
+                    <p class="animate-fadeUp delay-1">新思考电机专注于各类微特电机的研发、生产与销售，为全球客户提供高品质的电机解决方案，以技术创新引领行业发展。</p>
+                    <div class="banner-btns animate-fadeUp delay-2">
+                        <a href="#about" class="btn btn-primary">了解更多</a>
+                        <a href="#contact" class="btn btn-outline">联系我们</a>
+                    </div>
+                </div>
+            </div>
+            <!-- 幻灯片2 -->
+            <div class="banner-slide" style="background-image: url('/assets/images/banner.svg')">
+                <div class="banner-overlay"></div>
+                <div class="banner-content">
+                    <h1 class="animate-fadeUp">智能制造 引领未来</h1>
+                    <p class="animate-fadeUp delay-1">拥有全自动化生产线和智能检测系统，年产能超过5000万台，品质管控达到国际一流水准。</p>
+                    <div class="banner-btns animate-fadeUp delay-2">
+                        <a href="#products" class="btn btn-primary">产品中心</a>
+                        <a href="#about" class="btn btn-outline">企业实力</a>
+                    </div>
+                </div>
+            </div>
+            <!-- 幻灯片3 -->
+            <div class="banner-slide" style="background-image: url('/assets/images/banner.svg')">
+                <div class="banner-overlay"></div>
+                <div class="banner-content">
+                    <h1 class="animate-fadeUp">全球合作 互利共赢</h1>
+                    <p class="animate-fadeUp delay-1">产品远销全球50多个国家和地区，与多家世界500强企业建立长期战略合作关系。</p>
+                    <div class="banner-btns animate-fadeUp delay-2">
+                        <a href="#news" class="btn btn-primary">新闻动态</a>
+                        <a href="#contact" class="btn btn-outline">商务合作</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- 轮播控制 -->
+        <div class="banner-controls">
+            <button class="banner-prev" id="bannerPrev"><i class="fas fa-chevron-left"></i></button>
+            <button class="banner-next" id="bannerNext"><i class="fas fa-chevron-right"></i></button>
+        </div>
+        <div class="banner-dots" id="bannerDots">
+            <span class="dot active"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+        </div>
+        <!-- 向下滚动提示 -->
+        <div class="scroll-hint" id="scrollHint">
+            <span>向下滚动</span>
+            <i class="fas fa-chevron-down"></i>
+        </div>
+    </section>
+
+    <!-- 数据统计条 -->
+    <section class="stats-bar">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item scroll-animate">
+                    <div class="stat-icon"><i class="fas fa-calendar-alt"></i></div>
+                    <div class="stat-number" data-target="21">0</div>
+                    <div class="stat-label">年行业经验</div>
+                </div>
+                <div class="stat-item scroll-animate">
+                    <div class="stat-icon"><i class="fas fa-globe"></i></div>
+                    <div class="stat-number" data-target="50">0</div>
+                    <div class="stat-label">覆盖国家和地区</div>
+                </div>
+                <div class="stat-item scroll-animate">
+                    <div class="stat-icon"><i class="fas fa-cogs"></i></div>
+                    <div class="stat-number" data-target="5000">0</div>
+                    <div class="stat-label">万台年产能</div>
+                </div>
+                <div class="stat-item scroll-animate">
+                    <div class="stat-icon"><i class="fas fa-award"></i></div>
+                    <div class="stat-number" data-target="200">0</div>
+                    <div class="stat-label">项技术专利</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 企业简介 -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="section-header scroll-animate">
+                <span class="section-subtitle">About Us</span>
+                <h2 class="section-title">企业简介</h2>
+                <p class="section-desc">专注微特电机研发制造21年，以技术创新驱动行业发展</p>
+            </div>
+            <div class="about-content">
+                <div class="about-img scroll-animate">
+                    <div class="about-img-wrapper">
+                        <img src="/assets/images/factory.svg" alt="新思考电机生产车间">
+                        <div class="about-img-badge">
+                            <span class="badge-number">21</span>
+                            <span class="badge-text">年专业经验</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-text scroll-animate">
+                    <h3>关于新思考电机</h3>
+                    <p>新思考电机股份有限公司成立于2005年，是一家集研发、生产、销售为一体的国家级高新技术企业，总部位于中国长三角智能制造产业带。</p>
+                    <p>公司专注于直流无刷电机、步进电机、伺服电机等系列产品的研发与制造，产品广泛应用于智能家居、工业自动化、新能源汽车、医疗设备等领域。</p>
+                    <p>凭借先进的生产设备、严格的质量管控体系和专业的技术团队，公司产品远销全球50多个国家和地区，与多家世界500强企业建立了长期战略合作关系。</p>
+                    <div class="about-features">
+                        <div class="about-feature">
+                            <i class="fas fa-check-circle"></i>
+                            <span>国家级高新技术企业</span>
+                        </div>
+                        <div class="about-feature">
+                            <i class="fas fa-check-circle"></i>
+                            <span>ISO9001质量体系认证</span>
+                        </div>
+                        <div class="about-feature">
+                            <i class="fas fa-check-circle"></i>
+                            <span>IATF16949汽车认证</span>
+                        </div>
+                        <div class="about-feature">
+                            <i class="fas fa-check-circle"></i>
+                            <span>200+技术专利</span>
+                        </div>
+                    </div>
+                    <a href="#about" class="btn btn-primary">查看完整介绍</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 产品中心 -->
+    <section class="products" id="products">
+        <div class="container">
+            <div class="section-header scroll-animate">
+                <span class="section-subtitle">Products</span>
+                <h2 class="section-title">产品中心</h2>
+                <p class="section-desc">多品类电机产品，满足不同行业应用需求</p>
+            </div>
+            <!-- 产品分类筛选 -->
+            <div class="product-filter scroll-animate">
+                <button class="filter-btn active" data-filter="all">全部产品</button>
+                <button class="filter-btn" data-filter="brushless">直流无刷电机</button>
+                <button class="filter-btn" data-filter="stepper">步进电机</button>
+                <button class="filter-btn" data-filter="servo">伺服电机</button>
+                <button class="filter-btn" data-filter="custom">定制方案</button>
+            </div>
+            <!-- 产品列表 -->
+            <div class="product-list" id="productList">
+                <!-- 产品1 -->
+                <div class="product-item scroll-animate" data-category="brushless">
+                    <div class="product-img">
+                        <img src="/assets/images/placeholder.svg" alt="直流无刷电机">
+                        <div class="product-badge">热销</div>
+                        <div class="product-overlay">
+                            <button class="product-detail-btn" data-product="0">
+                                <i class="fas fa-eye"></i> 查看详情
+                            </button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h4>直流无刷电机</h4>
+                        <p>高效节能、低噪音、长寿命，适用于智能家居、工业自动化设备等场景。</p>
+                        <div class="product-tags">
+                            <span>高效节能</span>
+                            <span>低噪音</span>
+                            <span>长寿命</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- 产品2 -->
+                <div class="product-item scroll-animate" data-category="stepper">
+                    <div class="product-img">
+                        <img src="/assets/images/placeholder.svg" alt="步进电机">
+                        <div class="product-badge new">新品</div>
+                        <div class="product-overlay">
+                            <button class="product-detail-btn" data-product="1">
+                                <i class="fas fa-eye"></i> 查看详情
+                            </button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h4>步进电机</h4>
+                        <p>高精度、高扭矩、响应快，广泛应用于3D打印、数控机床、机器人等领域。</p>
+                        <div class="product-tags">
+                            <span>高精度</span>
+                            <span>高扭矩</span>
+                            <span>响应快</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- 产品3 -->
+                <div class="product-item scroll-animate" data-category="servo">
+                    <div class="product-img">
+                        <img src="/assets/images/placeholder.svg" alt="伺服电机">
+                        <div class="product-overlay">
+                            <button class="product-detail-btn" data-product="2">
+                                <i class="fas fa-eye"></i> 查看详情
+                            </button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h4>伺服电机</h4>
+                        <p>高动态响应、精准定位，适用于高端自动化生产线、新能源汽车配套设备。</p>
+                        <div class="product-tags">
+                            <span>动态响应</span>
+                            <span>精准定位</span>
+                            <span>高性能</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- 产品4 -->
+                <div class="product-item scroll-animate" data-category="brushless">
+                    <div class="product-img">
+                        <img src="/assets/images/placeholder.svg" alt="微型直流无刷电机">
+                        <div class="product-overlay">
+                            <button class="product-detail-btn" data-product="3">
+                                <i class="fas fa-eye"></i> 查看详情
+                            </button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h4>微型直流无刷电机</h4>
+                        <p>超小型设计，适用于医疗器械、精密仪器等空间受限场景。</p>
+                        <div class="product-tags">
+                            <span>超小型</span>
+                            <span>精密控制</span>
+                            <span>低振动</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- 产品5 -->
+                <div class="product-item scroll-animate" data-category="stepper">
+                    <div class="product-img">
+                        <img src="/assets/images/placeholder.svg" alt="闭环步进电机">
+                        <div class="product-badge new">新品</div>
+                        <div class="product-overlay">
+                            <button class="product-detail-btn" data-product="4">
+                                <i class="fas fa-eye"></i> 查看详情
+                            </button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h4>闭环步进电机</h4>
+                        <p>集成编码器闭环控制，兼具步进电机简便性与伺服电机精度。</p>
+                        <div class="product-tags">
+                            <span>闭环控制</span>
+                            <span>高精度</span>
+                            <span>不失步</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- 产品6 -->
+                <div class="product-item scroll-animate" data-category="custom">
+                    <div class="product-img">
+                        <img src="/assets/images/placeholder.svg" alt="定制化解决方案">
+                        <div class="product-overlay">
+                            <button class="product-detail-btn" data-product="5">
+                                <i class="fas fa-eye"></i> 查看详情
+                            </button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h4>定制化解决方案</h4>
+                        <p>根据客户需求定制电机参数、外观及接口，提供一站式电机解决方案。</p>
+                        <div class="product-tags">
+                            <span>按需定制</span>
+                            <span>专属设计</span>
+                            <span>一站式</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- 产品详情模态框 -->
+        <div class="modal" id="productModal">
+            <div class="modal-content">
+                <button class="modal-close" id="modalClose"><i class="fas fa-times"></i></button>
+                <div class="modal-body">
+                    <div class="modal-img">
+                        <img id="modalImage" src="" alt="">
+                    </div>
+                    <div class="modal-info">
+                        <h3 id="modalTitle"></h3>
+                        <p id="modalDesc"></p>
+                        <div class="modal-specs" id="modalSpecs"></div>
+                        <div class="modal-actions">
+                            <a href="#contact" class="btn btn-primary">咨询报价</a>
+                            <button class="btn btn-outline" id="modalDownload">下载规格书</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 新闻动态 -->
+    <section class="news" id="news">
+        <div class="container">
+            <div class="section-header scroll-animate">
+                <span class="section-subtitle">News</span>
+                <h2 class="section-title">新闻动态</h2>
+                <p class="section-desc">了解新思考电机最新资讯与行业动态</p>
+            </div>
+            <!-- 新闻分类Tab -->
+            <div class="news-tabs scroll-animate">
+                <button class="news-tab active" data-tab="all">全部</button>
+                <button class="news-tab" data-tab="company">公司新闻</button>
+                <button class="news-tab" data-tab="industry">行业资讯</button>
+                <button class="news-tab" data-tab="product">新品发布</button>
+            </div>
+            <div class="news-list" id="newsList">
+                <!-- 新闻1 -->
+                <div class="news-item scroll-animate" data-type="company">
+                    <div class="news-img">
+                        <img src="/assets/images/placeholder.svg" alt="智能制造示范企业">
+                        <div class="news-tag">公司新闻</div>
+                    </div>
+                    <div class="news-body">
+                        <div class="news-meta">
+                            <span class="news-date"><i class="far fa-calendar"></i> 2026-03-15</span>
+                            <span class="news-view"><i class="far fa-eye"></i> 1,286</span>
+                        </div>
+                        <h4>新思考电机荣获"2026年度智能制造示范企业"称号</h4>
+                        <p>近日，新思考电机凭借先进的智能制造体系和卓越的产品质量，荣获由工信部颁发的"2026年度智能制造示范企业"称号...</p>
+                        <a href="#" class="news-link">阅读全文 <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <!-- 新闻2 -->
+                <div class="news-item scroll-animate" data-type="product">
+                    <div class="news-img">
+                        <img src="/assets/images/placeholder.svg" alt="新品发布">
+                        <div class="news-tag product">新品发布</div>
+                    </div>
+                    <div class="news-body">
+                        <div class="news-meta">
+                            <span class="news-date"><i class="far fa-calendar"></i> 2026-02-28</span>
+                            <span class="news-view"><i class="far fa-eye"></i> 2,450</span>
+                        </div>
+                        <h4>新思考电机新品发布：高效节能伺服电机系列正式上市</h4>
+                        <p>2月28日，新思考电机新品发布会在总部举行，全新研发的高效节能伺服电机系列正式面向市场推出，能效提升15%...</p>
+                        <a href="#" class="news-link">阅读全文 <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <!-- 新闻3 -->
+                <div class="news-item scroll-animate" data-type="company">
+                    <div class="news-img">
+                        <img src="/assets/images/placeholder.svg" alt="战略合作">
+                        <div class="news-tag">公司新闻</div>
+                    </div>
+                    <div class="news-body">
+                        <div class="news-meta">
+                            <span class="news-date"><i class="far fa-calendar"></i> 2026-01-10</span>
+                            <span class="news-view"><i class="far fa-eye"></i> 3,120</span>
+                        </div>
+                        <h4>新思考电机与欧洲知名车企达成战略合作</h4>
+                        <p>1月10日，新思考电机宣布与欧洲某知名车企签订长期供货协议，将为其新能源汽车提供定制化电机解决方案...</p>
+                        <a href="#" class="news-link">阅读全文 <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <!-- 新闻4 -->
+                <div class="news-item scroll-animate" data-type="industry">
+                    <div class="news-img">
+                        <img src="/assets/images/placeholder.svg" alt="行业资讯">
+                        <div class="news-tag industry">行业资讯</div>
+                    </div>
+                    <div class="news-body">
+                        <div class="news-meta">
+                            <span class="news-date"><i class="far fa-calendar"></i> 2025-12-20</span>
+                            <span class="news-view"><i class="far fa-eye"></i> 986</span>
+                        </div>
+                        <h4>2026年全球微特电机市场趋势分析与展望</h4>
+                        <p>据行业研究机构最新报告，2026年全球微特电机市场规模预计将达到580亿美元，新能源汽车和智能家居成为增长最快的细分领域...</p>
+                        <a href="#" class="news-link">阅读全文 <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="news-more scroll-animate">
+                <button class="btn btn-primary" id="loadMoreNews">加载更多 <i class="fas fa-plus"></i></button>
+            </div>
+        </div>
+    </section>
+
+    <!-- 合作伙伴 -->
+    <section class="partners">
+        <div class="container">
+            <div class="section-header scroll-animate">
+                <span class="section-subtitle">Partners</span>
+                <h2 class="section-title">合作伙伴</h2>
+                <p class="section-desc">携手全球知名企业，共创行业未来</p>
+            </div>
+            <div class="partner-scroll scroll-animate">
+                <div class="partner-track">
+                    <div class="partner-item"><div class="partner-logo">ABB</div></div>
+                    <div class="partner-item"><div class="partner-logo">SIEMENS</div></div>
+                    <div class="partner-item"><div class="partner-logo">SCHNEIDER</div></div>
+                    <div class="partner-item"><div class="partner-logo">BOSCH</div></div>
+                    <div class="partner-item"><div class="partner-logo">PANASONIC</div></div>
+                    <div class="partner-item"><div class="partner-logo">MITSUBISHI</div></div>
+                    <div class="partner-item"><div class="partner-logo">ABB</div></div>
+                    <div class="partner-item"><div class="partner-logo">SIEMENS</div></div>
+                    <div class="partner-item"><div class="partner-logo">SCHNEIDER</div></div>
+                    <div class="partner-item"><div class="partner-logo">BOSCH</div></div>
+                    <div class="partner-item"><div class="partner-logo">PANASONIC</div></div>
+                    <div class="partner-item"><div class="partner-logo">MITSUBISHI</div></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 联系我们 -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="section-header scroll-animate">
+                <span class="section-subtitle">Contact</span>
+                <h2 class="section-title">联系我们</h2>
+                <p class="section-desc">我们期待为您提供专业的电机解决方案</p>
+            </div>
+            <div class="contact-content">
+                <div class="contact-info scroll-animate">
+                    <h3>联系方式</h3>
+                    <div class="contact-item">
+                        <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
+                        <div>
+                            <strong>公司地址</strong>
+                            <p>江苏省苏州市工业园区智能制造产业园88号</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon"><i class="fas fa-phone"></i></div>
+                        <div>
+                            <strong>联系电话</strong>
+                            <p>400-888-8888</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+                        <div>
+                            <strong>电子邮箱</strong>
+                            <p>info@xinsikao-motor.com</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon"><i class="fas fa-clock"></i></div>
+                        <div>
+                            <strong>工作时间</strong>
+                            <p>周一至周五 8:30-17:30</p>
+                        </div>
+                    </div>
+                    <!-- 地图占位 -->
+                    <div class="contact-map">
+                        <div class="map-placeholder">
+                            <i class="fas fa-map-marked-alt"></i>
+                            <p>江苏省苏州市工业园区</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form scroll-animate">
+                    <h3>留言咨询</h3>
+                    <p class="form-desc">请填写以下信息，我们将尽快与您联系</p>
+                    <form id="contactForm" novalidate>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="name">姓名 <span class="required">*</span></label>
+                                <input type="text" id="name" name="name" placeholder="请输入您的姓名" required>
+                                <span class="error-msg" id="nameError"></span>
+                            </div>
+                            <div class="form-group">
+                                <label for="phone">电话 <span class="required">*</span></label>
+                                <input type="tel" id="phone" name="phone" placeholder="请输入您的联系电话" required>
+                                <span class="error-msg" id="phoneError"></span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">邮箱</label>
+                            <input type="email" id="email" name="email" placeholder="请输入您的邮箱（选填）">
+                            <span class="error-msg" id="emailError"></span>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">咨询主题</label>
+                            <select id="subject" name="subject">
+                                <option value="">请选择咨询主题</option>
+                                <option value="product">产品咨询</option>
+                                <option value="quote">获取报价</option>
+                                <option value="tech">技术支持</option>
+                                <option value="cooperation">商务合作</option>
+                                <option value="other">其他</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">留言内容 <span class="required">*</span></label>
+                            <textarea id="message" name="message" rows="5" placeholder="请输入您想咨询的内容" required></textarea>
+                            <span class="error-msg" id="messageError"></span>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-full" id="submitBtn">
+                            <span class="btn-text">提交留言</span>
+                            <span class="btn-loading"><i class="fas fa-spinner fa-spin"></i> 提交中...</span>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-top">
+                <div class="footer-col footer-about">
+                    <div class="footer-logo">
+                        <div class="logo-icon"><i class="fas fa-cog"></i></div>
+                        <div class="logo-text">新思考电机 <span>股份有限公司</span></div>
+                    </div>
+                    <p>新思考电机专注于各类微特电机的研发、生产与销售，为全球客户提供高品质的电机解决方案。</p>
+                    <div class="footer-social">
+                        <a href="#" aria-label="微信"><i class="fab fa-weixin"></i></a>
+                        <a href="#" aria-label="微博"><i class="fab fa-weibo"></i></a>
+                        <a href="#" aria-label="领英"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>关于我们</h4>
+                    <ul>
+                        <li><a href="#">企业简介</a></li>
+                        <li><a href="#">发展历程</a></li>
+                        <li><a href="#">荣誉资质</a></li>
+                        <li><a href="#">企业文化</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>产品中心</h4>
+                    <ul>
+                        <li><a href="#">直流无刷电机</a></li>
+                        <li><a href="#">步进电机</a></li>
+                        <li><a href="#">伺服电机</a></li>
+                        <li><a href="#">定制化解决方案</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>服务支持</h4>
+                    <ul>
+                        <li><a href="#">技术支持</a></li>
+                        <li><a href="#">售后服务</a></li>
+                        <li><a href="#">常见问题</a></li>
+                        <li><a href="#">下载中心</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 新思考电机股份有限公司 版权所有 | 苏ICP备12345678号</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- 回到顶部 -->
+    <button class="back-to-top" id="backToTop" aria-label="回到顶部">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <!-- Toast 通知 -->
+    <div class="toast-container" id="toastContainer"></div>
+
+    <!-- 主脚本 -->
+    <script src="/js/main.js" type="module"></script>
+</body>
+</html>

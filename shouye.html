@@ -1,0 +1,721 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>新思考电机股份有限公司 - 专业电机研发与制造</title>
+    <style>
+        /* 全局样式重置 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Microsoft Yahei", sans-serif;
+        }
+        
+        /* 页面基础样式 */
+        body {
+            color: #333;
+            line-height: 1.6;
+            background-color: #f8f9fa;
+        }
+        
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+        
+        ul {
+            list-style: none;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        /* 头部导航 */
+        header {
+            background-color: #fff;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 999;
+        }
+        
+        .header-wrap {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #0066cc;
+        }
+        
+        .logo span {
+            color: #333;
+            font-size: 18px;
+            font-weight: normal;
+            margin-left: 5px;
+        }
+        
+        .nav-list {
+            display: flex;
+            gap: 30px;
+        }
+        
+        .nav-item a {
+            font-size: 16px;
+            font-weight: 500;
+            padding: 8px 0;
+            border-bottom: 2px solid transparent;
+            transition: all 0.3s;
+        }
+        
+        .nav-item a:hover {
+            color: #0066cc;
+            border-bottom: 2px solid #0066cc;
+        }
+        
+        /* 移动端导航按钮 */
+        .menu-btn {
+            display: none;
+            font-size: 24px;
+            cursor: pointer;
+        }
+        
+        /* 横幅轮播区 */
+        .banner {
+            height: 500px;
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://picsum.photos/1920/500?random=1') center/cover no-repeat;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            text-align: center;
+        }
+        
+        .banner-content h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+        
+        .banner-content p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            max-width: 800px;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: #0066cc;
+            color: #fff;
+            border-radius: 4px;
+            font-size: 16px;
+            font-weight: 500;
+            transition: background-color 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn:hover {
+            background-color: #0052a3;
+        }
+        
+        /* 企业简介 */
+        .about {
+            padding: 80px 0;
+            background-color: #fff;
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 32px;
+            margin-bottom: 50px;
+            color: #333;
+            position: relative;
+        }
+        
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 3px;
+            background-color: #0066cc;
+            margin: 15px auto 0;
+        }
+        
+        .about-content {
+            display: flex;
+            gap: 50px;
+            align-items: center;
+        }
+        
+        .about-img {
+            flex: 1;
+        }
+        
+        .about-img img {
+            width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        
+        .about-text {
+            flex: 1;
+        }
+        
+        .about-text h3 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: #0066cc;
+        }
+        
+        .about-text p {
+            font-size: 16px;
+            margin-bottom: 15px;
+            color: #666;
+            text-align: justify;
+        }
+        
+        /* 产品中心 */
+        .products {
+            padding: 80px 0;
+            background-color: #f8f9fa;
+        }
+        
+        .product-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .product-item {
+            background-color: #fff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            transition: transform 0.3s;
+        }
+        
+        .product-item:hover {
+            transform: translateY(-5px);
+        }
+        
+        .product-img {
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .product-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s;
+        }
+        
+        .product-item:hover .product-img img {
+            transform: scale(1.05);
+        }
+        
+        .product-info {
+            padding: 20px;
+        }
+        
+        .product-info h4 {
+            font-size: 18px;
+            margin-bottom: 10px;
+            color: #333;
+        }
+        
+        .product-info p {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 15px;
+        }
+        
+        /* 新闻动态 */
+        .news {
+            padding: 80px 0;
+            background-color: #fff;
+        }
+        
+        .news-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .news-item {
+            border-bottom: 1px solid #eee;
+            padding-bottom: 20px;
+        }
+        
+        .news-date {
+            font-size: 14px;
+            color: #999;
+            margin-bottom: 10px;
+        }
+        
+        .news-item h4 {
+            font-size: 18px;
+            margin-bottom: 10px;
+            transition: color 0.3s;
+        }
+        
+        .news-item h4:hover {
+            color: #0066cc;
+        }
+        
+        .news-item p {
+            font-size: 14px;
+            color: #666;
+        }
+        
+        /* 联系我们 */
+        .contact {
+            padding: 80px 0;
+            background-color: #f8f9fa;
+        }
+        
+        .contact-content {
+            display: flex;
+            gap: 50px;
+        }
+        
+        .contact-info {
+            flex: 1;
+        }
+        
+        .contact-info h3 {
+            font-size: 24px;
+            margin-bottom: 30px;
+            color: #0066cc;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            font-size: 16px;
+        }
+        
+        .contact-item i {
+            font-size: 20px;
+            color: #0066cc;
+            margin-right: 15px;
+            width: 24px;
+            text-align: center;
+        }
+        
+        .contact-form {
+            flex: 1;
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: #333;
+        }
+        
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+            resize: none;
+        }
+        
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #0066cc;
+            box-shadow: 0 0 0 2px rgba(0,102,204,0.1);
+        }
+        
+        /* 页脚 */
+        footer {
+            background-color: #333;
+            color: #fff;
+            padding: 50px 0 20px;
+        }
+        
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .footer-col {
+            flex: 1;
+            min-width: 200px;
+        }
+        
+        .footer-col h4 {
+            font-size: 18px;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-col h4::after {
+            content: '';
+            display: block;
+            width: 40px;
+            height: 2px;
+            background-color: #0066cc;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+        }
+        
+        .footer-col ul li {
+            margin-bottom: 10px;
+            font-size: 14px;
+        }
+        
+        .footer-col ul li a {
+            transition: color 0.3s;
+        }
+        
+        .footer-col ul li a:hover {
+            color: #0066cc;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #444;
+            font-size: 14px;
+            color: #999;
+        }
+        
+        /* 响应式适配 */
+        @media (max-width: 768px) {
+            .menu-btn {
+                display: block;
+            }
+            
+            .nav-list {
+                position: fixed;
+                top: 70px;
+                left: -100%;
+                flex-direction: column;
+                background-color: #fff;
+                width: 100%;
+                padding: 20px;
+                box-shadow: 0 5px 8px rgba(0,0,0,0.1);
+                transition: left 0.3s;
+            }
+            
+            .nav-list.active {
+                left: 0;
+            }
+            
+            .banner {
+                height: 350px;
+            }
+            
+            .banner-content h1 {
+                font-size: 32px;
+            }
+            
+            .banner-content p {
+                font-size: 16px;
+            }
+            
+            .about-content,
+            .contact-content {
+                flex-direction: column;
+            }
+            
+            .about-img {
+                margin-bottom: 30px;
+            }
+        }
+    </style>
+    <!-- 引入字体图标 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- 头部导航 -->
+    <header>
+        <div class="container header-wrap">
+            <div class="logo">
+                新思考电机 <span>股份有限公司</span>
+            </div>
+            <!-- 移动端菜单按钮 -->
+            <div class="menu-btn" id="menuBtn">
+                <i class="fas fa-bars"></i>
+            </div>
+            <!-- 导航列表 -->
+            <ul class="nav-list" id="navList">
+                <li class="nav-item"><a href="#home">首页</a></li>
+                <li class="nav-item"><a href="#about">企业简介</a></li>
+                <li class="nav-item"><a href="#products">产品中心</a></li>
+                <li class="nav-item"><a href="#news">新闻动态</a></li>
+                <li class="nav-item"><a href="#contact">联系我们</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- 横幅区域 -->
+    <section class="banner" id="home">
+        <div class="banner-content">
+            <h1>创新驱动 精工制造</h1>
+            <p>新思考电机专注于各类微特电机的研发、生产与销售，为全球客户提供高品质的电机解决方案，以技术创新引领行业发展。</p>
+            <button class="btn">了解更多</button>
+        </div>
+    </section>
+
+    <!-- 企业简介 -->
+    <section class="about" id="about">
+        <div class="container">
+            <h2 class="section-title">企业简介</h2>
+            <div class="about-content">
+                <div class="about-img">
+                    <img src="https://picsum.photos/600/400?random=2" alt="新思考电机生产车间">
+                </div>
+                <div class="about-text">
+                    <h3>关于新思考电机</h3>
+                    <p>新思考电机股份有限公司成立于2005年，是一家集研发、生产、销售为一体的国家级高新技术企业，总部位于中国长三角智能制造产业带。</p>
+                    <p>公司专注于直流无刷电机、步进电机、伺服电机等系列产品的研发与制造，产品广泛应用于智能家居、工业自动化、新能源汽车、医疗设备等领域。</p>
+                    <p>凭借先进的生产设备、严格的质量管控体系和专业的技术团队，公司产品远销全球50多个国家和地区，与多家世界500强企业建立了长期战略合作关系。</p>
+                    <button class="btn">查看完整介绍</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 产品中心 -->
+    <section class="products" id="products">
+        <div class="container">
+            <h2 class="section-title">产品中心</h2>
+            <div class="product-list">
+                <!-- 产品1 -->
+                <div class="product-item">
+                    <div class="product-img">
+                        <img src="https://picsum.photos/400/200?random=3" alt="直流无刷电机">
+                    </div>
+                    <div class="product-info">
+                        <h4>直流无刷电机</h4>
+                        <p>高效节能、低噪音、长寿命，适用于智能家居、工业自动化设备等场景。</p>
+                        <button class="btn">产品详情</button>
+                    </div>
+                </div>
+                <!-- 产品2 -->
+                <div class="product-item">
+                    <div class="product-img">
+                        <img src="https://picsum.photos/400/200?random=4" alt="步进电机">
+                    </div>
+                    <div class="product-info">
+                        <h4>步进电机</h4>
+                        <p>高精度、高扭矩、响应快，广泛应用于3D打印、数控机床、机器人等领域。</p>
+                        <button class="btn">产品详情</button>
+                    </div>
+                </div>
+                <!-- 产品3 -->
+                <div class="product-item">
+                    <div class="product-img">
+                        <img src="https://picsum.photos/400/200?random=5" alt="伺服电机">
+                    </div>
+                    <div class="product-info">
+                        <h4>伺服电机</h4>
+                        <p>高动态响应、精准定位，适用于高端自动化生产线、新能源汽车配套设备。</p>
+                        <button class="btn">产品详情</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 新闻动态 -->
+    <section class="news" id="news">
+        <div class="container">
+            <h2 class="section-title">新闻动态</h2>
+            <div class="news-list">
+                <!-- 新闻1 -->
+                <div class="news-item">
+                    <div class="news-date">2026-03-15</div>
+                    <h4>新思考电机荣获"2026年度智能制造示范企业"称号</h4>
+                    <p>近日，新思考电机凭借先进的智能制造体系和卓越的产品质量，荣获由工信部颁发的"2026年度智能制造示范企业"称号...</p>
+                </div>
+                <!-- 新闻2 -->
+                <div class="news-item">
+                    <div class="news-date">2026-02-28</div>
+                    <h4>新思考电机新品发布：高效节能伺服电机系列正式上市</h4>
+                    <p>2月28日，新思考电机新品发布会在总部举行，全新研发的高效节能伺服电机系列正式面向市场推出，能效提升15%...</p>
+                </div>
+                <!-- 新闻3 -->
+                <div class="news-item">
+                    <div class="news-date">2026-01-10</div>
+                    <h4>新思考电机与欧洲知名车企达成战略合作</h4>
+                    <p>1月10日，新思考电机宣布与欧洲某知名车企签订长期供货协议，将为其新能源汽车提供定制化电机解决方案...</p>
+                </div>
+            </div>
+            <div style="text-align: center; margin-top: 30px;">
+                <button class="btn">查看更多新闻</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- 联系我们 -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <h2 class="section-title">联系我们</h2>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3>联系方式</h3>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>地址：江苏省苏州市工业园区智能制造产业园88号</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <span>电话：400-888-8888</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <span>邮箱：info@xinsikao-motor.com</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-clock"></i>
+                        <span>工作时间：周一至周五 8:30-17:30</span>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <h3 style="margin-bottom: 20px; color: #333;">留言咨询</h3>
+                    <form>
+                        <div class="form-group">
+                            <label for="name">姓名</label>
+                            <input type="text" id="name" placeholder="请输入您的姓名">
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">电话</label>
+                            <input type="tel" id="phone" placeholder="请输入您的联系电话">
+                        </div>
+                        <div class="form-group">
+                            <label for="message">留言内容</label>
+                            <textarea id="message" rows="5" placeholder="请输入您想咨询的内容"></textarea>
+                        </div>
+                        <button type="submit" class="btn" style="width: 100%;">提交留言</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <h4>关于我们</h4>
+                    <ul>
+                        <li><a href="#">企业简介</a></li>
+                        <li><a href="#">发展历程</a></li>
+                        <li><a href="#">荣誉资质</a></li>
+                        <li><a href="#">企业文化</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>产品中心</h4>
+                    <ul>
+                        <li><a href="#">直流无刷电机</a></li>
+                        <li><a href="#">步进电机</a></li>
+                        <li><a href="#">伺服电机</a></li>
+                        <li><a href="#">定制化解决方案</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>新闻中心</h4>
+                    <ul>
+                        <li><a href="#">公司新闻</a></li>
+                        <li><a href="#">行业资讯</a></li>
+                        <li><a href="#">新品发布</a></li>
+                        <li><a href="#">展会信息</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>服务支持</h4>
+                    <ul>
+                        <li><a href="#">技术支持</a></li>
+                        <li><a href="#">售后服务</a></li>
+                        <li><a href="#">常见问题</a></li>
+                        <li><a href="#">下载中心</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                © 2026 新思考电机股份有限公司 版权所有 | 苏ICP备12345678号
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // 移动端导航交互
+        const menuBtn = document.getElementById('menuBtn');
+        const navList = document.getElementById('navList');
+        
+        menuBtn.addEventListener('click', function() {
+            navList.classList.toggle('active');
+            // 切换菜单图标
+            const icon = menuBtn.querySelector('i');
+            if (navList.classList.contains('active')) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+            } else {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            }
+        });
+
+        // 平滑滚动
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 70,
+                        behavior: 'smooth'
+                    });
+                    // 关闭移动端导航
+                    navList.classList.remove('active');
+                    const icon = menuBtn.querySelector('i');
+                    icon.classList.remove('fa-times');
+                    icon.classList.add('fa-bars');
+                }
+            });
+        });
+
+        // 表单提交提示
+        const contactForm = document.querySelector('.contact-form form');
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('留言提交成功！我们会尽快与您联系。');
+            this.reset();
+        });
+    </script>
+</body>
+</html>
