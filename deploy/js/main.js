@@ -222,6 +222,9 @@ class BannerSlider {
             dot.addEventListener('click', () => this.goTo(index));
         });
 
+        // 自动播放
+        this.startAutoPlay();
+
         // 鼠标悬停暂停
         const banner = $('.banner');
         banner?.addEventListener('mouseenter', () => this.stopAutoPlay());
@@ -229,11 +232,6 @@ class BannerSlider {
 
         // 触摸滑动
         this.setupTouchEvents(banner);
-        
-        // 延迟启动自动播放，确保页面完全加载
-        setTimeout(() => {
-            this.startAutoPlay();
-        }, 1000);
     }
 
     goTo(index) {
@@ -269,10 +267,7 @@ class BannerSlider {
 
     startAutoPlay() {
         this.stopAutoPlay();
-        // 检查页面是否可见
-        if (document.visibilityState === 'visible') {
-            this.autoPlayTimer = setInterval(() => this.next(), this.autoPlayInterval);
-        }
+        this.autoPlayTimer = setInterval(() => this.next(), this.autoPlayInterval);
     }
 
     stopAutoPlay() {
