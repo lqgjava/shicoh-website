@@ -8,7 +8,7 @@
 // Vite 代理配置在 vite.config.js 中，将 /api 代理到 http://localhost:3002
 const API_BASE_URL = window.location.hostname === 'localhost' 
   ? '/api'
-  : 'https://shicoh-api.onrender.com/api';
+  : 'https://shicoh-api.vercel.app/api';
 
 // 自动刷新间隔（毫秒），生产环境 5 分钟，开发环境 30 秒
 const AUTO_REFRESH_INTERVAL = window.location.hostname === 'localhost' 
@@ -97,7 +97,7 @@ const DataManager = {
 // 生产环境：拼接API服务器完整地址
 const API_SERVER_URL = window.location.hostname === 'localhost'
     ? ''  // 开发环境由Vite代理处理，不需要前缀
-    : 'https://shicoh-api.onrender.com';
+    : 'https://shicoh-api.vercel.app';
 
 const getFullImageUrl = (url) => {
     if (!url) return '';

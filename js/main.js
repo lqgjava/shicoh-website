@@ -14,7 +14,7 @@ const $$ = (sel, ctx = document) => [...ctx.querySelectorAll(sel)];
 // 生产环境：拼接API服务器完整地址
 const API_SERVER_URL = window.location.hostname === 'localhost'
     ? ''  // 开发环境由Vite代理处理，不需要前缀
-    : 'https://shicoh-api.onrender.com';
+    : 'https://shicoh-api.vercel.app';
 
 const getFullImageUrl = (url) => {
     if (!url) return '';
@@ -889,7 +889,7 @@ class ContactForm {
             // 获取API基础URL
             const apiBase = window.location.hostname === 'localhost' 
                 ? '/api' 
-                : 'https://shicoh-api.onrender.com/api';
+                : 'https://shicoh-api.vercel.app/api';
 
             const response = await fetch(`${apiBase}/messages`, {
                 method: 'POST',
